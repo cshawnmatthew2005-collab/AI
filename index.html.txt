@@ -1,0 +1,20 @@
+from IPython.display import HTML
+
+# Wrap your code in a triple-quoted string
+html_code = """
+<div id="timer" style="color: red; font-size: 50px; font-family: monospace;">00:60</div>
+<script>
+  let timeLeft = 60;
+  setInterval(() => {
+    if(timeLeft > 0) {
+      timeLeft--;
+      document.getElementById('timer').innerText = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+    } else {
+      alert("Too slow! Resetting...");
+      location.reload();
+    }
+  }, 1000);
+</script>
+"""
+
+HTML(html_code)
